@@ -1,0 +1,2 @@
+# JSValidator - JavaScript Code Validator
+The JSValidator is a service that uses the JSHint API to check your JavaScript code for errors and potential problems. The service is a code quality tool that useful for everyone who wants to validate their JavaScript code regularly. It also can be used to check the code of [Code Institute](https://codeinstitute.net/) students' projects before they submit them for review.
