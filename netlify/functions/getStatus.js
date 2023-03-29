@@ -13,7 +13,7 @@ exports.handler = async function (event, context) {
     const data = await response.data;
     return {
       statusCode: response.status,
-      body: JSON.stringify({ data }),
+      body: JSON.stringify({ ...data }),
     }
   } catch (error) {
     // https://axios-http.com/docs/handling_errors
@@ -25,14 +25,14 @@ exports.handler = async function (event, context) {
       let data = error.response.data
       return {
         statusCode: status,
-        body: JSON.stringify({ data }),
+        body: JSON.stringify({ ...data }),
       }
     } else {
       // Something happened in setting up the request that triggered an Error
       // or The request was made but no response was received
       return {
         statusCode: '',
-        body: JSON.stringify({ error })
+        body: JSON.stringify({ ...error })
       }
     }
   }
