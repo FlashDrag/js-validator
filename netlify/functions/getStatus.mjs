@@ -1,12 +1,14 @@
-require("dotenv").config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-const axios = require("axios");
+import axios from 'axios';
 
 const apiKey = process.env.API_KEY
 const API_URL = "https://ci-jshint.herokuapp.com/api"
 
+
 // https://docs.netlify.com/functions/build/?fn-language=js#create-function-file-2
-exports.handler = async function (event, context) {
+export const handler = async (event, context) => {
   try {
     const queryString = `${API_URL}?api_key=${apiKey}`;
     const response = await axios.get(queryString);
