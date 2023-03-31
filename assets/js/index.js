@@ -38,8 +38,8 @@ async function getStatus() {
   const data = await response.json();
 
   if (!response.ok) {
-    alert(data.error);
-    throw `Error no ${data.error_no}: ${data.error}\nStatus code: ${data.status_code}`;
+    displayException(data);
+    throw new Error(data.error);
   }
   const [day, month, year] = data.expiry.split('-').map(Number);
   const expiryDate = new Date(year, month - 1, day);
@@ -87,7 +87,7 @@ async function postForm() {
   /* If any input field fails validation,
   the function displays an error message and returns false
   and the form is not sent to the API */
-  
+
   // if (!validateForm()) {return;}
 
   try {
@@ -105,9 +105,8 @@ async function postForm() {
       displayResult(data);
     } else {
       // Handle api errors
-      alert(data.error);
-      // displayException(data);
-      throw new Error(data.error);
+      displayException(data);
+      console.error(data.error);
     }
   } catch (err) {
     // Handle network errors
@@ -138,5 +137,18 @@ function displayResult(data) {
 
   $("#resultsModalTitle").text(heading);
   $("#results-content").html(result);
+  $('#resultsModal').modal('show');
+}
+
+function displayException(data) {
+  let heading = '<span class="red">An Exception Occurred</span>';
+  let resultStr = `
+            <p>The API returned status code ${data.status_code}</p>
+            <p>Error number: <strong>${data.error_no}</strong></p>
+            <p>Error text: <strong>${data.error}</strong></p>`
+
+  $("#resultsModalTitle").html(heading);
+  $("#results-content").html(resultStr);
+
   $('#resultsModal').modal('show');
 }
