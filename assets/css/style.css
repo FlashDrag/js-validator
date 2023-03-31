@@ -47,3 +47,11 @@ textarea {
   max-height: 60vh;
   overflow-y: scroll;
 }
+
+.red {
+  color: rgb(139, 7, 7);
+}
+
+.no_errors {
+  color: rgb(19, 94, 69);
+}

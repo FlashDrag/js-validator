@@ -33,8 +33,8 @@ export const handler = async (event, context) => {
       // Something happened in setting up the request that triggered an Error
       // or The request was made but no response was received
       return {
-        statusCode: '',
-        body: JSON.stringify({ ...error })
+        statusCode: '500',
+				body: JSON.stringify({ "error":'Internal server error', "error_no":0,"status_code":500 })
       }
     }
   }
