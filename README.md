@@ -63,3 +63,7 @@ The Netlify Serverless Functions require the following dependencies:
 ```
 netlify dev
 ```
+
+## Credits
+- A simple implementation of this service was developed based on the walkthrough project of the [Code Institute](https://codeinstitute.net/) Full Stack Software Development course.
+- Netlify Serverless Functions were implemented using the [How to Hide API Keys in Frontend Apps using Netlify Functions](https://www.freecodecamp.org/news/hide-api-keys-in-frontend-apps-using-netlify-functions/) tutorial.
